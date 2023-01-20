@@ -1,0 +1,42 @@
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-lg-10 offset-lg-1">
+			<div class="card">
+				<div class="card-body text-center">
+					<span class="title">Listado de Productos</span>
+					<button class="btn btn-success float-end" routerLink="/create-product"> Nuevo</button>
+					<table *ngIf="listProductos.length > 0" class="table mt-5">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">nombre</th>
+								<th scope="col">Precio</th>
+								<th scope="col">stock</th>
+								<th scope="col">descripcion</th>
+								<th scope="col">imagen</th>
+								<th scope="col">estado</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let producto of listProductos">
+								<th scope="row">1</th>
+								<td>{{ producto.nombre }}</td>
+								<td>{{ producto.precio_venta }}</td>
+								<td>{{ producto.stock }}</td>
+								<td>{{ producto.descripcion }}</td>
+								<td>{{ producto.imagen }}</td>
+								<td>{{ producto.estado }}</td>
+								<td>
+									<i class="fa-solid fa-trash text-primary"></i>
+									<i class="fa-solid fa-pen-to-square text-danger" (click)="eliminarProducto(producto.idproducto)"></i>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<h5 *ngIf="listProductos.length == 0" >No hay Productos para mostrar</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
